@@ -1,0 +1,23 @@
+{
+    "name": "razherana/piewpiew",
+    "description": "Extendable view renderer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+      "files": ["src/init.php", "src/functions.php"],
+      "psr-4": {
+          "Piewpiew\\": "src/"
+      }
+    },
+    "authors": [
+        {
+            "name": "razherana",
+            "email": "razherana@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "razherana/configreader": "^1.0"
+    },
+    "minimum-stability": "stable"
+}
