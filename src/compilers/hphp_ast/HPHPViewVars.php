@@ -82,9 +82,11 @@ class HPHPViewVars extends ViewVars
     // We make this a random long name so it has low probability it collides with the var_name there
     $__content__content__content__content__content__content__ = $this->elements[HPHPTemplate::class][$template_name]->content;
 
-    // We extract the vars
-    extract($this->elements[HPHPTemplate::class][$template_name]->uses);
-    extract($vars);
+    // We add the vars to the template + the viewvar reference
+    $all_vars________________________ = $this->elements[HPHPTemplate::class][$template_name]->uses + ['___vars___' => $this];
+    $all_vars________________________ = array_merge($all_vars________________________, $vars);
+
+    extract($all_vars________________________);
 
     // We eval the code
     eval("?>$__content__content__content__content__content__content__");
