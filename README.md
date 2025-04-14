@@ -203,6 +203,12 @@ class CustomCompiler extends AbstractCompiler
 }
 ```
 
+## Live Testing
+
+For interactive testing and real-time demonstrations, visit the companion repository: [razherana/php-piewpiew-test](https://github.com/razherana/php-piewpiew-test) 
+
+That test repository provides practical examples and allows you to experiment with Piewpiew's features in a working environment.
+
 ## Security
 
 Note that Piewpiew doesn't automatically escape output. Always use `htmlspecialchars()` or similar functions to escape user-generated content to prevent XSS attacks.
