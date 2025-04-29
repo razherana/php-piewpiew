@@ -10,6 +10,9 @@
 <body>
   <for loop="$i = 0; $i < 5; $i++">
     <div>
+      <if condition="$i === 3">
+        <break />
+      </if>
       <p>Item <?= $i ?></p>
     </div>
   </for>

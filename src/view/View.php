@@ -15,6 +15,10 @@ class View extends ConfigurableElement
 
   public function config_file(): string
   {
+    // If user want to override the config file
+    if (defined('PIEWPIEW_CONFIG'))
+      return constant('PIEWPIEW_CONFIG');
+
     return PIEWPIEW_DIR . DIRECTORY_SEPARATOR . 'config';
   }
 }

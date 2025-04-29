@@ -13,7 +13,9 @@ use Piewpiew\compilers\hphp_ast\events\controller\TemplateEndControllerEvent;
 use Piewpiew\compilers\hphp_ast\events\if\CloseIfTagEvent;
 use Piewpiew\compilers\hphp_ast\events\if\OpenElseIfTagEvent;
 use Piewpiew\compilers\hphp_ast\events\if\OpenIfTagEvent;
+use Piewpiew\compilers\hphp_ast\events\loop\BreakLoopTagEvent;
 use Piewpiew\compilers\hphp_ast\events\loop\CloseLoopTagEvent;
+use Piewpiew\compilers\hphp_ast\events\loop\ContinueLoopTagEvent;
 use Piewpiew\compilers\hphp_ast\events\loop\OpenLoopTagEvent;
 use Piewpiew\compilers\hphp_ast\events\orphan\IncludeTagEvent;
 use Piewpiew\compilers\hphp_ast\events\orphan\JoinTagEvent;
@@ -146,6 +148,16 @@ class HPHPDictionary extends AbstractDictionary
       CloseLoopTagEvent::class => [
         "close_tag" => fn($lexiqs, $index) => $lexiqs[$index] instanceof Lexiq
           && in_array($lexiqs[$index]->name, ["close_loop"]),
+      ],
+
+      BreakLoopTagEvent::class => [
+        "break" => fn($lexiqs, $index) => $lexiqs[$index] instanceof Lexiq
+          && in_array($lexiqs[$index]->name, ["break"]),
+      ],
+
+      ContinueLoopTagEvent::class => [
+        "continue" => fn($lexiqs, $index) => $lexiqs[$index] instanceof Lexiq
+          && in_array($lexiqs[$index]->name, ["continue"]),
       ],
 
       // Blocks

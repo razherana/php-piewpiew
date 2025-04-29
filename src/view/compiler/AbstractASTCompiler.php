@@ -69,7 +69,7 @@ abstract class AbstractASTCompiler
         return file_get_contents($temp_file);
       }
 
-    throw new UnsupportedCompilerException($this);
+    throw new UnsupportedCompilerException($this, $file_without_extension);
   }
 
   /**
@@ -162,8 +162,8 @@ abstract class AbstractASTCompiler
             $c++;
             continue;
           }
-          
-          if(is_int($event_name))
+
+          if (is_int($event_name))
             $event_name = $condition;
 
           /** @var AbstractTermEvent $termEvent */
