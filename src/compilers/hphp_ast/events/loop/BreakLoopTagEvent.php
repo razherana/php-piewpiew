@@ -16,14 +16,6 @@ class BreakLoopTagEvent extends AbstractTermEvent
     // Check that it is in a loop
     $count = intval(trim($lexiqs[0]->matches[1] ?? "0"));
 
-    /** @var HPHPAstCompiler $compiler */
-    $compiler = $this->compiler;
-    $loop_nests = array_sum($compiler->loop_nest);
-
-    if ($count > $loop_nests)
-      throw new HPHPAstViewException("Break loop tag exceeds the number of loops in the view. " .
-        "You have $loop_nests loops and you are trying to break $count loop(s).");
-
     $lexiqs[0]->replace("<?php break $count; ?>");
   }
 
